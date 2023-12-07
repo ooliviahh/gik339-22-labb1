@@ -14,45 +14,45 @@ const divElement = document.getElementById('empty-box')
 console.log(divElement)
 
 // Uppgift 5:
+// Här skapar vi en function där det skrivs ut i consolen när användaren klickar ur input fields. 
 function handleInputFields(e){
     console.log('handleInputFields, eventobjekt', e);
     const name = e.target.name;
     const value = e.target.value;
-    const html = `<p onclick="handleClick(event) class="test">Fältet ${name} har värdet ${value}</p>`;
-    divElement.insertAdjacentHTML('afterbegin', html);
- 
-}
+    const html = `<p style="margin-top: 1rem;
+    text-align: center;" "onclick="handleClick(event) class="test">Fältet ${name} har värdet: ${value}</p>`;
+    divElement.insertAdjacentHTML('afterbegin', html);  
+    console.log('Fältet ' + name + ' har värdet: ' + value);
+
+}; 
+
 
 //Uppgift 6:
-//Eventlyssnare till kopplad till checkboxen
+//Eventlyssnare till kopplad till checkboxen. 
 checkBox.addEventListener('change', function () {
 const colorInput = document.getElementById('color');
          if (checkBox.checked) {
             // Spara ursprungsfärgen om checkboxen är markerad
-            originalColor = divElement.style.backgroundColor;
+            noColor = divElement.style.backgroundColor;
             divElement.style.backgroundColor = colorInput.value;
             } 
         else {
             // Om man bockar ur checkboxen så försvinner färgen man skrivit in. 
-            // Div elementen återgår till sin ursprungliga färg. 
-            divElement.style.backgroundColor = originalColor;
+            // Div elementen återgår till att ha ingen färg. 
+            divElement.style.backgroundColor = noColor;
             }
 }); 
 
-// Eventlyssnare kopplad till uppgift 5, textfälten. 
- textField.forEach((field) => field.addEventListener('blur', handleInputFields));
+// Eventlyssnare kopplad till textfälten i uppgift 5. 
+textField.forEach((field) => field.addEventListener('blur', handleInputFields));
 
-// Eventlyssnare kopplad till knappen 
-deleteButton.addEventListener('click', function (e) {
-    // här tar vi bort defaultfunktionen som gör att sidan "skickas och laddas om" när vi har
-    // knappen i tagen <form> 
-     e.preventDefault();
-    if (deleteButton.clicked) {
-         divElement.style.display = 'none';
-        } 
-    else {
-        divElement.style.display = 'color';
-     }
-   
- })
 
+//Koppla en anonym function till knappen i uppgift 6, 
+// vid klick på knappen försvinner div elementet. 
+deleteButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (deleteButton.click) {
+        console.log('Du har tryckt på Ta bort-knappen!'); 
+        divElement.style.display = 'none';
+        }
+}); 
