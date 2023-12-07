@@ -32,7 +32,7 @@ function handleInputFields(e){
 checkBox.addEventListener('change', function () {
 const colorInput = document.getElementById('color');
          if (checkBox.checked) {
-            // Spara ursprungsfärgen om checkboxen är markerad
+            // Spara ursprungsfärgen om checkboxen är markerad.
             noColor = divElement.style.backgroundColor;
             divElement.style.backgroundColor = colorInput.value;
             } 
