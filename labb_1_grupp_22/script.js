@@ -53,6 +53,6 @@ deleteButton.addEventListener('click', (event) => {
     event.preventDefault();
     if (deleteButton.click) {
         console.log('Du har tryckt på Ta bort-knappen!'); 
-        divElement.style.display = 'none';
+        divElement.remove();
         }
 }); 
